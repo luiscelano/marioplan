@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
+import {connect} from 'react-redux'
 const Nabvar = () =>{
     return(
         <nav className="nav-wrapper grey darken-3">
@@ -13,4 +14,10 @@ const Nabvar = () =>{
         </nav>
     )
 }
-export default Nabvar
+const mapStateToProps =(state)=>{
+    console.log(state)
+    return {
+        
+    }
+}
+export default connect()(Nabvar)
