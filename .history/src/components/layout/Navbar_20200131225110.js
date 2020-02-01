@@ -10,7 +10,8 @@ const Nabvar = (props) =>{
         <nav className="nav-wrapper grey darken-3">
             <div className="container">
                 <Link to='/' className="brand-logo">Mario Plan</Link>
-                {links}
+                <SignedInLinks/>
+                <SignedOutLinks/>
             </div>
         </nav>
     )

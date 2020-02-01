@@ -12,17 +12,17 @@ import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
 import fbConfig from './config/fbConfig'
 
 const store = createStore(rootReducer,
-  compose(
-    applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
-    reactReduxFirebase(fbConfig, {attachAuthIsReady: true}), // redux binding for firebase
-    reduxFirestore(fbConfig) // redux bindings for firestore
-  )
-);
-store.firebaseAuthIsReady.then(() => {
+    compose(
+      applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
+      reactReduxFirebase(fbConfig,{attatchAuthIsReady:true}), // redux binding for firebase
+      reduxFirestore(fbConfig) // redux bindings for firestore
+    )
+  );
+store.firebaseAuthIsReady.then(()=>{
   ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
-  serviceWorker.unregister();
-});
+})
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
